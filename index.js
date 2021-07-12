@@ -3,8 +3,6 @@ const {
   inquirerMenus,
   pause,
   leer,
-  confirmar,
-  listarTareasCheckList,
   listarLugares,
 } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");

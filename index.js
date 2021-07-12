@@ -24,9 +24,15 @@ const main = async () => {
 
         const id = await listarLugares(lugares);
 
+        if (id === "0") continue;
+
         const lugar = lugares.find((item) => item.id === id);
 
+        busqueda.agregarHistorial(lugar.nombre);
+
         const clima = await busqueda.clima(lugar.lat, lugar.lng);
+
+        console.clear();
 
         console.log("\nInformación de la ciudad\n".green);
 
@@ -41,9 +47,10 @@ const main = async () => {
         break;
 
       case 2:
-        break;
-
-      default:
+        busqueda.historialCapitalizado.forEach((item, index) => {
+          const idx = `${index + 1}`.green;
+          console.log(`${idx} ${item}`);
+        });
         break;
     }
 

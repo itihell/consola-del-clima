@@ -21,9 +21,12 @@ class Busquedas {
       });
 
       const data = await intance.get();
-      console.log(data.data);
-
-      return []; //Retornar las ciudades
+      return data.data.features.map((lugar) => ({
+        id: lugar.id,
+        nombre: lugar.place_name,
+        lng: lugar.center[0],
+        lat: lugar.center[1],
+      }));
     } catch (error) {
       console.log(error);
     }

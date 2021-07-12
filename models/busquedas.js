@@ -1,12 +1,21 @@
+const axios = require("axios");
+
 class Busquedas {
   historial = ["Tegucigalpa", "Madrid", "San José"];
 
   constructor() {}
 
   async ciudad(lugar = "") {
-    console.log(lugar);
+    try {
+      const url = `https://reqres.in/api/users?page=2`;
+      const data = await axios.get(url);
 
-    return []; //Retornar las ciudades
+      console.log(data.data);
+
+      return []; //Retornar las ciudades
+    } catch (error) {
+      return [];
+    }
   }
 }
 

@@ -17,6 +17,19 @@ const main = async () => {
 
     switch (opt) {
       case 1:
+        const lugar = await leer("Ciudad: ");
+
+       await busqueda.ciudad(lugar);
+
+        console.log("\nInformación de la ciudad\n".green);
+
+        console.log("Ciudad: ");
+        console.log("Lat: ");
+        console.log("Lng: ");
+        console.log("Temperatura: ");
+        console.log("Mínima: ");
+        console.log("Máxima: ");
+
         break;
 
       case 2:

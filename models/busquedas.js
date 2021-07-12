@@ -5,16 +5,27 @@ class Busquedas {
 
   constructor() {}
 
+  get paramMapbox() {
+    return {
+      access_token: process.env.MAPBOX_KEY,
+      limit: 5,
+      language: "es",
+    };
+  }
+
   async ciudad(lugar = "") {
     try {
-      const url = `https://reqres.in/api/users?page=2`;
-      const data = await axios.get(url);
+      const intance = axios.create({
+        baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+        params: this.paramMapbox,
+      });
 
+      const data = await intance.get();
       console.log(data.data);
 
       return []; //Retornar las ciudades
     } catch (error) {
-      return [];
+      console.log(error);
     }
   }
 }

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const {
   inquirerMenus,
   pause,
@@ -19,7 +20,7 @@ const main = async () => {
       case 1:
         const lugar = await leer("Ciudad: ");
 
-       await busqueda.ciudad(lugar);
+        await busqueda.ciudad(lugar);
 
         console.log("\nInformación de la ciudad\n".green);
 
